@@ -15,26 +15,26 @@ class Config:
             else:
                 for name in setting_names:
                     if line.startswith(name + "=", 0, len(name) + 1):
-                       if isinstance(locals()[name], str):
+                        if isinstance(locals()[name], str):
                             helper: str = line
                             helper = helper[(len(name) + 2):]
-                            if(name == "prefix"):
+                            if name == "prefix":
                                 self.prefix = helper
-                            if(name == "status"):
+                            if name == "status":
                                 self.status = helper
-                            if(name == "nickname"):
+                            if name == "nickname":
                                 self.nickname = helper
-                       elif isinstance(locals()[name], bool):
+                        elif isinstance(locals()[name], bool):
                             helper: str = line
                             helper2: bool = False
                             helper = helper[(len(name) + 2):]
                             if helper.__contains__("true"):
                                 helper2 = True
-                            if(name == "use_status"):
+                            if name == "use_status":
                                 self.use_status = helper2
-                            if(name == "use_nickname"):
+                            if name == "use_nickname":
                                 self.use_nickname = helper2
-                            if(name == "warnings"):
+                            if name == "warnings":
                                 self.warnings = helper
 
         print(self.prefix, self.use_status, self.status, self.warnings, self.use_nickname, self.nickname)
